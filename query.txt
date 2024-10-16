@@ -1,3 +1,4 @@
+|-
 SecurityIncident
 | where TimeGenerated > ago(1d)
 | count
