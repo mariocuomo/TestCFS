@@ -10,7 +10,7 @@ servers:
 paths:
     /alerts_v2?$select=id,title:
         get:
-            operationId: GetAlertIdsFromIncidentIdAAD
+            operationId: GetAlertIdsFromIncidentIdAADDelegated
             description: List all alert id's based on a user provided incident id
             ExamplePrompt:
               - 'show me alert ids for the specified incident id'
