@@ -1,0 +1,19 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "WeatherNew",
+    "name_for_model": "SamplePluginManifestOAuth",
+    "description_for_human": "Gets info via OAuth. Current DateTime, report status.",
+    "description_for_model": "Shows an OAUTH Sample",
+    "auth": {
+      "type": "oauth",
+      "client_url": "https://login.microsoftonline.com/76628557-f789-42a1-ba9b-1f302059d529/oauth2/v2.0/authorize",
+      "scope": "https://graph.microsoft.com/.default",
+      "authorization_url": "https://login.microsoftonline.com/76628557-f789-42a1-ba9b-1f302059d529/oauth2/v2.0/token",
+      "authorization_content_type": "application/x-www-form-urlencoded",
+      "client_id": "c5583006-cc24-430a-87ac-8f768585480f"
+    },
+    "api": {
+      "type": "openapi",
+      "url": "https://raw.githubusercontent.com/mariocuomo/TestCFS/refs/heads/main/OAuthAuthorizationCodeFlow"
+    }
+  }
