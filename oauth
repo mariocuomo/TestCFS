@@ -54,3 +54,7 @@ responses:
                           type: string
                         id:
                           type: string
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
