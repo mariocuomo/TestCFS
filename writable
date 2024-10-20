@@ -18,7 +18,7 @@ paths:
             schema:
               type: object
               properties:
-                value:
+                DeviceValue:
                   type: string
                   description: The value to set for the device
       responses:
