@@ -2,36 +2,43 @@ openapi: 3.0.0
 info:
   title: Microsoft Defender for Endpoint API
   version: 1.0.0
-  description: API to set device value in Microsoft Defender for Endpoint.
+  description: API to add or remove multiple machine tags in Microsoft Defender for Endpoint.
 servers:
   - url: https://api.securitycenter.microsoft.com
 paths:
-  /api/machines/{id}/setDeviceValue:
+  /api/machines/{id}/tags:
     post:
-      summary: Set a device value. {id} is the ID of the device and it is passed as parameter
-      operationId: setDeviceValue
+      summary: Add or remove multiple machine tags
+      operationId: addOrRemoveMachineTags
       parameters:
         - name: id
           in: path
           required: true
           schema:
             type: string
-          description: The ID of the device passed as parameter
+          description: The ID of the machine
           example: 555a7e6b4cfe6e97b30d5cfbd5ed8b91fa875d44
       requestBody:
-        description: Device value object that needs to be set
+        description: Tags to be added or removed
         required: true
         content:
           application/json:
             schema:
               type: object
               properties:
-                value:
+                action:
                   type: string
-                  description: The value to set for the device
+                  description: The action to perform (add or remove)
+                  example: add
+                tags:
+                  type: array
+                  items:
+                    type: string
+                  description: List of tags to be added or removed
+                  example: ["tag1", "tag2"]
       responses:
         '200':
-          description: Device value set successfully
+          description: Tags updated successfully
           content:
             application/json:
               schema:
@@ -40,6 +47,7 @@ paths:
                   status:
                     type: string
                     description: Status of the operation
+                    example: success
         '400':
           description: Bad request
         '401':
@@ -47,4 +55,4 @@ paths:
         '403':
           description: Forbidden
         '500':
-          description: Internal 
+          description: Internal server error
