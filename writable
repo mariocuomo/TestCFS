@@ -27,9 +27,6 @@ paths:
                 title:
                   type: string
                   description: Title of the indicator
-                application:
-                  type: string
-                  description: Application of the indicator
                 expirationTime:
                   type: string
                   format: date-time
@@ -43,14 +40,6 @@ paths:
                 description:
                   type: string
                   description: Description of the indicator
-                recommendedActions:
-                  type: string
-                  description: Recommended actions for the indicator
-                rbacGroupNames:
-                  type: array
-                  items:
-                    type: string
-                  description: RBAC group names associated 
       responses:
         '201':
           description: Indicator created successfully
@@ -70,15 +59,5 @@ paths:
           description: Forbidden
         '500':
           description: Internal server error
-components:
-  securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/authorize
-          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
-          scopes:
-            https://graph.microsoft.com/.default: Grants access to Microsoft Graph API
 security:
   - OAuth2: 
