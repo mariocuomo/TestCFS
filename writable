@@ -8,7 +8,7 @@ servers:
 paths:
   /api/machines/{id}/setDeviceValue:
     post:
-      summary: Set a device value
+      summary: Set a device value. {id} is the ID of the device and it is passed as parameter
       operationId: setDeviceValue
       parameters:
         - name: id
@@ -16,7 +16,7 @@ paths:
           required: true
           schema:
             type: string
-          description: The ID of the device
+          description: The ID of the device passed as parameter
       requestBody:
         description: Device value object that needs to be set
         required: true
