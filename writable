@@ -2,55 +2,43 @@ openapi: 3.0.0
 info:
   title: Microsoft Defender for Endpoint API
   version: 1.0.0
-  description: API to create threat indicators in Microsoft Defender for Endpoint.
+  description: API to set device value in Microsoft Defender for Endpoint.
 servers:
-  - url: https://api.security.microsoft.com
+  - url: https://api.securitycenter.microsoft.com
 paths:
-  /api/indicators:
+  /api/machines/{id}/setDeviceValue:
     post:
-      summary: Create a new threat indicator
-      operationId: createThreatIndicator
+      summary: Set a device value
+      operationId: setDeviceValue
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the device
       requestBody:
-        description: Threat indicator object that needs to be added
+        description: Device value object that needs to be set
         required: true
         content:
           application/json:
             schema:
               type: object
               properties:
-                indicatorValue:
+                value:
                   type: string
-                  description: Value of the indicator
-                indicatorType:
-                  type: string
-                  description: Type of the indicator
-                title:
-                  type: string
-                  description: Title of the indicator
-                expirationTime:
-                  type: string
-                  format: date-time
-                  description: Expiration time of the indicator
-                action:
-                  type: string
-                  description: The action to apply to the indicator
-                severity:
-                  type: string
-                  description: Severity of the indicator
-                description:
-                  type: string
-                  description: Description of the indicator
+                  description: The value to set for the device
       responses:
-        '201':
-          description: Indicator created successfully
+        '200':
+          description: Device value set successfully
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  id:
+                  status:
                     type: string
-                    description: ID of the created indicator
+                    description: Status of the operation
         '400':
           description: Bad request
         '401':
@@ -58,6 +46,4 @@ paths:
         '403':
           description: Forbidden
         '500':
-          description: Internal server error
-security:
-  - OAuth2: 
+          description: Internal 
