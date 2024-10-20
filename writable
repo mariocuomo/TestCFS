@@ -31,11 +31,6 @@ paths:
                 severity:
                   type: string
                   description: Severity of the indicator
-                tags:
-                  type: array
-                  items:
-                    type: string
-                  description: Tags associated with the indicator
                 title:
                   type: string
                   description: Title of the indicator
