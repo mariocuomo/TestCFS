@@ -18,28 +18,39 @@ paths:
             schema:
               type: object
               properties:
-                action:
+                indicatorValue:
                   type: string
-                  description: The action to apply to the indicator
-                description:
+                  description: Value of the indicator
+                indicatorType:
                   type: string
-                  description: Description of the indicator
+                  description: Type of the indicator
+                title:
+                  type: string
+                  description: Title of the indicator
+                application:
+                  type: string
+                  description: Application of the indicator
                 expirationTime:
                   type: string
                   format: date-time
                   description: Expiration time of the indicator
+                action:
+                  type: string
+                  description: The action to apply to the indicator
                 severity:
                   type: string
                   description: Severity of the indicator
-                title:
+                description:
                   type: string
-                  description: Title of the indicator
-                type:
+                  description: Description of the indicator
+                recommendedActions:
                   type: string
-                  description: Type of the indicator
-                value:
-                  type: string
-                  description: Value of the indicator
+                  description: Recommended actions for the indicator
+                rbacGroupNames:
+                  type: array
+                  items:
+                    type: string
+                  description: RBAC group names associated 
       responses:
         '201':
           description: Indicator created successfully
