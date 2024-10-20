@@ -17,6 +17,7 @@ paths:
           schema:
             type: string
           description: The ID of the device passed as parameter
+          example: 555a7e6b4cfe6e97b30d5cfbd5ed8b91fa875d44
       requestBody:
         description: Device value object that needs to be set
         required: true
